@@ -167,30 +167,6 @@ public class ServiceImpl implements ActorsDao {
 
 	}
 
-	public void deleteMovieOfActor(Long Id) {
-		Transaction tx = null;
-		Session session = null;
-
-		try {
-			session = Hibernateutil.getSessionFactory().openSession();
-			tx = session.beginTransaction();
-			String hql="Delete * from Movies m where m.actors.id= :actorsId";
-			Query<Movies> query=session.createQuery(hql);
-			query.setParameter("actorsIs" , Id);
-			tx.commit();
-
-		} catch (Exception e) {
-			if (tx == null) {
-				tx.rollback();
-			}
-			e.getStackTrace();
-		} finally {
-			if (tx != null) {
-				session.close();
-			}
-		}
-
-	}
 
 	public List<Movies> getMoviesList() {
 		Transaction tx = null;
