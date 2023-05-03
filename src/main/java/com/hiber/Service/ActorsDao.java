@@ -21,6 +21,4 @@ public interface ActorsDao {
 	Actors getActorsById(Long Id);
 	List<Actors> getActorsByMoviesId(Long Id);
 	
-	
-	
 }
